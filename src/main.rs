@@ -17,10 +17,8 @@ struct Keys {
 
 fn read_config() -> Data {
     let current_dir = std::env::current_dir().expect("current directory");
-    println!("The current directory is {}", current_dir.display());
-    let config_file = std::fs::read_to_string("./src/config.toml").expect("config file");
+    let config_file = std::fs::read_to_string("./config.toml").expect("config file");
     let data: Data = toml::from_str(&config_file).expect("config file");
-    print!("dc: {:?}", data.keys.discord);
     data
 }
 
